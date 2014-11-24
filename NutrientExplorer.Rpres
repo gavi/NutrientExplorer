@@ -1,0 +1,57 @@
+Nutrient Explorer
+========================================================
+author: Gavi Narra
+date: 11/24/2014
+ http://gavi.shinyapps.io/NutrientExplorer/
+Introduction
+========================================================
+ http://gavi.shinyapps.io/NutrientExplorer/
+
+Nutrient Explorer displays nutrient information for various foods.
+
+- Data source is from USDA
+- Choose any two nutrients for interactive scatter plot
+- Choose another nutrient to fill the color the circles
+- Displays correlation between the selected nutrients
+- Ability to filter the data by food categories and keywords
+- See detailed information by clicking on the food
+
+
+USDA Dataset
+========================================================
+USDA Dataset can be downloaded at 
+
+http://www.ars.usda.gov/Services/docs.htm?docid=23634
+
+```{r}
+nutdata<-read.csv("nutdata.csv")
+dim(nutdata)
+```
+
+For this project a custom query was written to combine abbreviated table with food description and food groups table to create the CSV file
+
+
+How to Use
+========================================================
+The UI is intuitive. See below explaining the various sections
+![alt text](help.png)
+
+Correlation Calculation
+========================================================
+We use "pairwise complete observations" option for accuracy in correlation calculation
+```{r}
+cor(nutdata[["Energ_Kcal"]],
+    nutdata[["Protein"]],
+    use="pairwise.complete.obs")
+```
+
+Depending on the filters the input datset changes. So you could for example find different correlations between nutrients when looking at Snacks category vs looking at Fruits and Vegetables
+
+R Packages Used
+============================================================
+- shiny
+- ggvis
+
+Source Code
+
+https://github.com/gavi/NutrientExplorer
