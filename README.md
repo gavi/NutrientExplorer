@@ -1,7 +1,7 @@
 NutrientExplorer
 ================
 
-USDA Nutrition Data Explorer creating as R Shiny App using ggvis.  You can see the live demo at
+USDA Nutrition Data Explorer created as R Shiny App using ggvis.  You can see the live demo at
 
 http://gavi.shinyapps.io/NutrientExplorer
 
